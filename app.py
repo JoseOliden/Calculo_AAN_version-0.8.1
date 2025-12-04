@@ -121,8 +121,8 @@ if page == "📁 Carga de Datos":
         if k0s_au_file:
             st.success(f"✅ {k0s_au_file.name} cargado")
     
-    # Base de datos
-    st.subheader("🗃️ Base de Datos")
+    # Base de datos de Nucléidos
+    st.subheader("🗃️ Base de datos de nucléidos")
     db_file = st.file_uploader("Subir Base de Datos (.xlsx)", type=['xlsx'], key="database")
     if db_file:
         st.success(f"✅ Base de datos cargada")
@@ -174,7 +174,7 @@ elif page == "⚙️ Configuración":
         u_w = st.number_input("Incertidumbre masa (%):", min_value=0.0, max_value=5.0, value=0.01, step=0.01)
     
     # Comparadores para cálculo de alfa
-    st.subheader("🔬 Comparadores para Cálculo de α")
+    st.subheader("🔬 Comparadores para Cálculo de f y α")
     col_comp1, col_comp2, col_comp3 = st.columns(3)
     with col_comp1:
         comp1 = st.selectbox("Comparador 1:", ["Au", "Co", "Mo"], index=0)

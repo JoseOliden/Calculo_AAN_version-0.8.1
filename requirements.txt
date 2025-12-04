@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+json
+datetime
+scipy
+sympy
+matplotlib
+tempfile
+base64

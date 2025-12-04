@@ -64,7 +64,7 @@ page = st.sidebar.radio(
 )
 
 # Función para limpiar nombres
-"""def limpiar_nombre(texto):
+def limpiar_nombre(texto):
     if pd.isna(texto):
         return ""
     return str(texto).upper().replace('-', '').replace(' ', '').strip()
@@ -84,7 +84,7 @@ def equations(vars, *par):
            (1 - (Aesp_3 / Aesp_1) * (k0_1 / k0_3) * (e_1 / e_3)) ** (-1)) * (Q0_1 - 0.429) / (Er_1 ** alfa) - \
           ((1 - (Aesp_2 / Aesp_1) * (k0_1 / k0_2) * (e_1 / e_2)) ** (-1)) * (Q0_2 - 0.429) / (Er_2 ** alfa) + \
           ((1 - (Aesp_3 / Aesp_1) * (k0_1 / k0_3) * (e_1 / e_3)) ** (-1)) * (Q0_3 - 0.429) / (Er_3 ** alfa)
-    return [eq1]"""
+    return [eq1]
 
 # ============================================
 # SECCIÓN 1: CARGA DE DATOS

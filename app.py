@@ -100,6 +100,7 @@ if page == "📁 Carga de Datos":
         k0s_au_file = st.file_uploader("Subir archivo .k0s de Au", type=['k0s', 'K0S'], key="k0s_au")
         if k0s_au_file:
             st.success(f"✅ {k0s_au_file.name} cargado")
+
     
     col21, col22 = st.columns(2)
 

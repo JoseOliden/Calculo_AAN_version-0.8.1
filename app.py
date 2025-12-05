@@ -129,7 +129,8 @@ if page == "📁 Carga de Datos":
         db_file = st.file_uploader("Subir Base de Datos (.xlsx)", type=['xlsx'], key="database")
         if db_file:
             st.success(f"✅ Base de datos cargada")
-            st.dataframe(df_file.to_frame())
+            df_file = pd.read_excel(db_file)
+            st.dataframe(df_file)
 
     with col22:
         # Librería de Nucléidos

@@ -99,7 +99,7 @@ def extraer_DATE_MEA_MEAS_TIM(k0s_file):
             if i + 1 < len(lineas):
                 datos = lineas[i + 1].strip().split()
                 if len(datos) >= 2:
-                    tiempo_real = datos[0]
-                    tiempo_vivo = datos[1]
+                    tiempo_vivo = datos[0]
+                    tiempo_real = datos[1]
 
     return fecha, hora, tiempo_real, tiempo_vivo

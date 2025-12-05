@@ -12,7 +12,7 @@ import sympy as sp
 import matplotlib.pyplot as plt
 import tempfile
 import base64
-from PrecArch import *
+from ProcArch import *
 from calAAN import *
 
 # Establecer configuración de página

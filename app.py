@@ -92,12 +92,13 @@ if page == "📁 Carga de Datos":
         if k0s_file:
             st.success(f"✅ {k0s_file.name} cargado")
             if k0s_file:
-                fecha, hora, t_real, t_vivo = extraer_DATE_MEA_MEAS_TIM(k0s_file)
+                fecha, hora, t_vivo, t_real = extraer_DATE_MEA_MEAS_TIM(k0s_file)
                 st.subheader("📌 Datos extraídos del archivo")
                 st.write(f"**Fecha de medición:** {fecha}")
                 st.write(f"**Hora de medición:** {hora}")
-                st.write(f"**Tiempo real (s):** {t_real}")
                 st.write(f"**Tiempo vivo (s):** {t_vivo}")
+                st.write(f"**Tiempo real (s):** {t_real}")
+                
     
     with col3:
         st.subheader("📄 Archivo .RPT de Au (Comparador)")
@@ -113,12 +114,13 @@ if page == "📁 Carga de Datos":
         k0s_au_file = st.file_uploader("Subir archivo .k0s de Au", type=['k0s', 'K0S'], key="k0s_au")
         if k0s_au_file:
             st.success(f"✅ {k0s_au_file.name} cargado")
-            fecha_au, hora_au, t_real_au, t_vivo_au = extraer_DATE_MEA_MEAS_TIM(k0s_au_file)
+            fecha_au, hora_au, t_vivo_au, t_real_au = extraer_DATE_MEA_MEAS_TIM(k0s_au_file)
             st.subheader("📌 Datos extraídos del archivo")
             st.write(f"**Fecha de medición:** {fecha_au}")
             st.write(f"**Hora de medición:** {hora_au}")
-            st.write(f"**Tiempo real (s):** {t_real_au}")
             st.write(f"**Tiempo vivo (s):** {t_vivo_au}")
+            st.write(f"**Tiempo real (s):** {t_real_au}")
+            
             st.write("Actualiza")
     
     col21, col22 = st.columns(2)

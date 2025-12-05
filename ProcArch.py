@@ -74,34 +74,32 @@ def procesar_RPT(rpt_file):
 
 # ------------------ kos ---------------------------------
 
-def extraer_DATE_MEAS_TIM(kos_file):
-    if kos_file is None:
+def extraer_DATE_MEA_MEAS_TIM(rpt_file):
+    if rpt_file is None:
         return None
 
-    # Leer sin consumir el buffer
-    contenido = kos_file.getvalue().decode("utf-8", errors="ignore")
+    contenido = rpt_file.getvalue().decode("utf-8", errors="ignore")
     lineas = contenido.splitlines()
 
     fecha = hora = tiempo_real = tiempo_vivo = None
 
-    for linea in lineas:
-        linea = linea.strip()
+    for i, linea in enumerate(lineas):
+        l = linea.strip()
 
-        # ----------------- DATE_MEA -----------------
-        if linea.startswith("$DATE_MEA"):
-            partes = linea.split()
-            # $DATE_MEA YYYY-MM-DD HH:MM:SS
-            if len(partes) >= 3:
-                fecha = partes[1]
-                hora = partes[2]
+        # -------------------- DATE_MEA --------------------
+        if l.startswith("$DATE_MEA"):
+            if i + 1 < len(lineas):
+                datos = lineas[i + 1].strip().split()
+                if len(datos) >= 2:
+                    fecha = datos[0]
+                    hora = datos[1]
 
-        # ----------------- MEAS_TIM -----------------
-        if linea.startswith("$MEAS_TIM"):
-            partes = linea.split()
-            # $MEAS_TIM TR TL
-            if len(partes) >= 3:
-                tiempo_real = partes[1]
-                tiempo_vivo = partes[2]
+        # -------------------- MEAS_TIM --------------------
+        if l.startswith("$MEAS_TIM"):
+            if i + 1 < len(lineas):
+                datos = lineas[i + 1].strip().split()
+                if len(datos) >= 2:
+                    tiempo_real = datos[0]
+                    tiempo_vivo = datos[1]
 
     return fecha, hora, tiempo_real, tiempo_vivo
-

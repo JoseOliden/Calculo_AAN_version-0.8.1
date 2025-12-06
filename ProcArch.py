@@ -83,25 +83,41 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos):
     df_Nucleidos["E (keV)"] = pd.to_numeric(df_Nucleidos["E (keV)"], errors="coerce")
     tol = float(1.5) 
     elementos_validos = df_Nucleidos["Elemento"].unique()
-    df_filtrado = df_rpt_muestras[
+    df_filtrado1 = df_rpt_muestras[
         (df_rpt_muestras["Tentative Nuclide"].isin(elementos_validos)) 
        ]
     df_rpt_muestras.reset_index(drop=True, inplace=True)
     df_Nucleidos.reset_index(drop=True, inplace=True)
-    #df_filtrado = df_rpt_muestras[
-    #    (df_rpt_muestras["Energy (keV)"] >= df_Nucleidos["E (keV)"] - tol) &
-    #    (df_rpt_muestras["Energy (keV)"] <= df_Nucleidos["E (keV)"] + tol)
-    #    ]
-    df_filtrado = pd.merge_asof(
-        df_rpt_muestras, 
-        df_Nucleidos, 
-        left_on="Energy (keV)", 
-        right_on="E (keV)", 
-        direction="nearest",
-        tolerance=tol
-    ).dropna(subset=["E (keV)"])
-    st.dataframe(df_filtrado)
+    df_filtrado1.reset_index(drop=True, inplace=True)
+
+    filas_filtradas = []
+    
+    for _, rango in df_Nucleidos.iterrows():
+        e_min = rango['E (keV)'] - tol
+        e_max = rango['E (keV)'] + tol
+        nucleido = rango['elementos']
+        
+        # Filtrar muestras en este rango
+        mascara = (df_filtrado1['Energy (keV)'] >= e_min) & (df_filtrado1['Energy (keV)'] <= e_max)
+        muestras_en_rango = df_filtrado1[mascara].copy()
+        
+        if not muestras_en_rango.empty:
+            # Agregar información del nucleido
+        #    muestras_en_rango[''] = nucleido
+        #    muestras_en_rango['E_min_rango'] = e_min
+        #    muestras_en_rango['E_max_rango'] = e_max
+            
+            filas_filtradas.append(muestras_en_rango)
+    
+    if not filas_filtradas:
+        return pd.DataFrame()
+    
+    # Combinar todos los resultados
+    df_filtrado = pd.concat(filas_filtradas, ignore_index=True)
+
     return df_filtrado
+
+
 def Selecion_Nucleidos_Au(df_rpt_Au,df_Nucleidos, df_database):
     # buscar en database energía de Au
     En_Au = float(411.8) 

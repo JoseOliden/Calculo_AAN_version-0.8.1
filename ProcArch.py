@@ -91,6 +91,7 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos):
     df_filtrado1.reset_index(drop=True, inplace=True)
 
     filas_filtradas = []
+    Nuclidos = pd.DataFrame(columns=['Identidad_Verificada_Energia'])  
     
     for _, rango in df_Nucleidos.iterrows():
         e_min = rango['E (keV)'] - tol
@@ -108,14 +109,15 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos):
         #    muestras_en_rango['E_max_rango'] = e_max
             
             filas_filtradas.append(muestras_en_rango)
-            filas_filtradas['Identidad_Verificada_Energia'] = nucleido
+            Nuclidos['Identidad_Verificada_Energia'] = nucleido
     
     if not filas_filtradas:
         return pd.DataFrame()
     
     # Combinar todos los resultados
     df_filtrado = pd.concat(filas_filtradas, ignore_index=True)
-
+    df_filtrado = df_filtrado.join(Nucleidos)
+    
     return df_filtrado
 
 

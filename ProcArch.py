@@ -82,7 +82,7 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos):
     st.dataframe(df_Nucleidos)
     df_Nucleidos["E (keV)"] = pd.to_numeric(df_Nucleidos["E (keV)"], errors="coerce")
     tol = 1.5 
-    elementos_validos = df_Nucleidos["Elemento"].unique()
+    elementos_validos = df_Nucleidos["Elemento"]
 
     df_filtrado = df_rpt_muestras[
         (df_rpt_muestras["Tentative Nuclide"].isin(elementos_validos)) &

@@ -88,6 +88,7 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos):
         (df_rpt_muestras["Energy (kev)"] >= df_Nuclidos["E (keV)"] - tol) &
         (df_rpt_muestras["Energy (keV)"] <= df_Nuclidos["E (keV)"] + tol)
         ]
+    st.dataframe(df_filtrado)
     return df_filtrado
 def Selecion_Nucleidos_Au(df_rpt_Au,df_Nucleidos, df_database):
     # buscar en database energía de Au

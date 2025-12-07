@@ -147,7 +147,7 @@ def Extra_from_database(df, df_database,tol=1.5):
         nucleido = rango['Tentative Nuclide']
         
         # Filtrar muestras en este rango
-        mascara = (df_database_o['NUCLID'] == nucleido & df_database_o['EGKEV'] >= e_min) & (df_database_o['EGKEV'] <= e_max)
+        mascara = (df_database_o['NUCLID'] == nucleido) & (df_database_o['EGKEV'] >= e_min) & (df_database_o['EGKEV'] <= e_max)
         muestras_en_rango = df_database_o[mascara].copy()
         st.dataframe(muestras_en_rango)
         """if not muestras_en_rango.empty:    

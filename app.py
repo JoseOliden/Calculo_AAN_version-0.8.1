@@ -263,7 +263,7 @@ elif page == "📊 Procesamiento":
             df_filtrado_Nuclidos = Selecion_Nucleidos_muestra(st.session_state.df_resultado,st.session_state.ref_files,st.session_state.tolerancia)
             st.dataframe(df_filtrado_Nuclidos)
 
-            df_filtrado_Nuclidos_prop = Extra_from_database(df_Au, st.session_state.df_file,st.session_state.tolerancia)
+            df_filtrado_Nuclidos_prop = Extra_from_database(df_filtrado_Nuclidos, st.session_state.df_file,st.session_state.tolerancia)
 # ============================================
 # SECCIÓN 4: RESULTADOS
 # ============================================

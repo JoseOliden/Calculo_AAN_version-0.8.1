@@ -118,7 +118,7 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos,tol):
     # agregar propiedades
     df_unido = Extra_from_database(df_filtrado, df_database,tol)
     
-    return df_filtrado
+    return df_unido
 
 def Selecion_Nucleidos_Au(df_rpt_Au,df_Nucleidos, df_database):
     # buscar en database energía de Au
@@ -149,7 +149,6 @@ def Extra_from_database(df, df_database,tol=1.5):
         # Filtrar muestras en este rango
         mascara = (df_database_o['NUCLID'] == nucleido) & (df_database_o['EGKEV'] >= e_min) & (df_database_o['EGKEV'] <= e_max)
         muestras_en_rango = df_database_o[mascara].copy()
-        st.dataframe(muestras_en_rango)
         df_prop_nucleidos = pd.concat([df_prop_nucleidos, muestras_en_rango], ignore_index=True)
         
     # Agregar propiedades

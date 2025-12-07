@@ -77,7 +77,7 @@ def procesar_RPT(rpt_file):
     st.success("Archivo procesado correctamente 🚀")
     return df_tab
 
-def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos,tol):
+def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos,tol=1.5):
     df_rpt_muestras["Energy (keV)"] = pd.to_numeric(df_rpt_muestras["Energy (keV)"], errors="coerce")
     df_Nucleidos["E (keV)"] = pd.to_numeric(df_Nucleidos["E (keV)"], errors="coerce")
     elementos_validos = df_Nucleidos["Elemento"].unique()

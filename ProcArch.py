@@ -114,6 +114,9 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos,tol):
     # Combinar todos los resultados
     df_filtrado = pd.concat(filas_filtradas, ignore_index=True)
     df_filtrado = df_filtrado.join(Nucleidos)
+
+    # agregar propiedades
+    df_unido = Extra_from_database(df_filtrado, df_database,tol)
     
     return df_filtrado
 
@@ -123,23 +126,20 @@ def Selecion_Nucleidos_Au(df_rpt_Au,df_Nucleidos, df_database):
     tol_Au = float(1.0)
     df_rpt_Au["Energy (keV)"] = pd.to_numeric(df_rpt_Au["Energy (keV)"], errors="coerce")
     df_energy_Au = df_rpt_Au[(df_rpt_Au["Tentative Nuclide"] == "AU-198") & ((df_rpt_Au["Energy (keV)"] > En_Au - tol_Au) | (df_rpt_Au["Energy (keV)"] < En_Au + tol_Au))]
-    return df_energy_Au 
+
+    # agregar propiedades
+    df_unido = Extra_from_database(df_energy_Au, df_database,tol)
+
+    return df_unido
 
 def Extra_from_database(df, df_database,tol=1.5):
     df["Energy (keV)"] = pd.to_numeric(df["Energy (keV)"], errors="coerce")
     df_database["EGKEV"] = pd.to_numeric(df_database["EGKEV"], errors="coerce")
-    #elementos_validos = df["Identidad_Verificada_Energia"].unique()
-    #df_filtrado1 = df_database[
-    #    (df_database["NUCLID"].isin(elementos_validos)) 
-    #   ]
-    #st.dataframe(df_filtrado1)
+    
     df.reset_index(drop=True, inplace=True)
     df_database.reset_index(drop=True, inplace=True)
     df_database_o = df_database.copy()
-    #df_filtrado1.reset_index(drop=True, inplace=True)
    
-    #filas_filtradas = []
-    #Nucleidos = pd.DataFrame(columns=['Identidad_Verificada_Energia'])  
     df_prop_nucleidos=pd.DataFrame()
     for _, rango in df.iterrows():
         e_min = rango['Energy (keV)'] - tol
@@ -151,23 +151,14 @@ def Extra_from_database(df, df_database,tol=1.5):
         muestras_en_rango = df_database_o[mascara].copy()
         st.dataframe(muestras_en_rango)
         df_prop_nucleidos = pd.concat([df_prop_nucleidos, muestras_en_rango], ignore_index=True)
-        """if not muestras_en_rango.empty:    
-            filas_filtradas.append(muestras_en_rango)
-            #Nucleidos = pd.concat([Nucleidos, nucleido], pd.Series(nucleido) ignore_index=True)
-            #Nucleidos['Identidad_Verificada_Energia'] = nucleido
-            lista_nucleidos = Nucleidos['Identidad_Verificada_Energia'].tolist()
-            lista_nucleidos.append(nucleido)
-            Nucleidos = pd.DataFrame() 
-            Nucleidos['Identidad_Verificada_Energia'] = lista_nucleidos
+        
+    # Agregar propiedades
+    df = df.reset_index(drop=True)
+    df_prop_nucleidos = df_prop_nucleidos.reset_index(drop=True)
+
+    df_unido = pd.concat([df, df_prop_nucleidos], axis=1)
     
-    if not filas_filtradas:
-        return pd.DataFrame()
-    # Combinar todos los resultados
-    df_filtrado = pd.concat(filas_filtradas, ignore_index=True)
-    df_filtrado = df_filtrado.join(Nucleidos)"""
-    
-    
-    return df_prop_nucleidos  
+    return df_unido  
 
 # ------------------ kos ---------------------------------
 

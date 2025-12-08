@@ -41,28 +41,29 @@ def crear_df_comparadores():
     )
   return df
 
-def equations(vars, *par):
-   # Define el sistema de ecuaciones para hallar alfa
+
+
+def cal_alfa(df_comp):
+  def equations(vars, *par):
+    # Define el sistema de ecuaciones para hallar alfa
     alfa = vars[0]
     Aesp_1,k0_1,e_1,Er_1,Q0_1,Aesp_2,k0_2,e_2,Er_2,Q0_2, Aesp_3,k0_3,e_3,Er_3,Q0_3 = par
     eq1 = ((1-(Aesp_2/Aesp_1)*(k0_1/k0_2)*(e_1/e_2))**(-1) - (1-(Aesp_3/Aesp_1)*(k0_1/k0_3)*(e_1/e_3))**(-1))*(Q0_1 - 0.429)/(Er_1**(alfa)) - ((1-(Aesp_2/Aesp_1)*(k0_1/k0_2)*(e_1/e_2))**(-1))*(Q0_2 - 0.429)/(Er_2**(alfa)) + ((1-(Aesp_3/Aesp_1)*(k0_1/k0_3)*(e_1/e_3))**(-1))*(Q0_3 - 0.429)/(Er_3**(alfa))
     return [eq1]
-
-# ------------------------ Calculo de concentración ---------------------------#
-
-def cal_Q0_alfa_i(Q0,Er,alfa):
-  # calcula Q0_alfa del elemento i
-  #(Q0-0.429)/(Er**alfa) + 0.429/((2*alfa+1)*0.55**alfa) literatura
-  # (Q0-0.429)/(Er**alfa) + 0.429/(2*alfa+0.55**alfa) # MACROS
-  return (Q0-0.429)/(Er**alfa) + 0.429/(2*alfa+0.55**alfa)
-
-def cal_f_alfa(Q0_alfa_c,Aesp_c,e_c,k0_c):
-  # calcula f
-  return ((k0_c[0]/k0_c[1])*(e_c[0]/e_c[1])*Q0_alfa_c[0]  - (Aesp_c[0]/Aesp_c[1])*Q0_alfa_c[1])/(Aesp_c[0]/Aesp_c[1] - (k0_c[0]/k0_c[1])*(e_c[0]/e_c[1]))
-
-def cal_alfa(par_comp, equations):
+  
   # calcula alfa
-  k0_c, e_c, Q0_c, Cn_c, w_c, lam_c,Er_c, td_c, tr_c, ti_c, tv_c = par_comp
+  #k0_c, e_c, Q0_c, Cn_c, w_c, lam_c,Er_c, td_c, tr_c, ti_c, tv_c = par_comp
+  k0_c = df_comp["k0"].to_numpy
+  e_c = df_comp["e_c"].to_numpy
+  Cn_c = df_comp["Cn"].to_numpy
+  w_c = df_comp["w"].to_numpy
+  lam_c = df_comp["lambda"].to_numpy
+  Er_c = df_comp["Er"].to_numpy
+  td_c = df_comp["t_dec"].to_numpy
+  tr_c = df_comp["t_real"].to_numpy
+  ti_c = df_comp["t_irr"].to_numpy
+  tv_c = df_comp["t_vivo"].to_numpy
+
   Aesp_c = np.zeros(len(k0_c))
   for i in range(len(k0_c)):
     Aesp_c[i] = Aesp(Cn_c[i], w_c[i],lam_c[i],tr_c[i],td_c[i],ti_c[i],tv_c[i],e_c[i]) # Activida especifica del elemento comparador
@@ -71,6 +72,17 @@ def cal_alfa(par_comp, equations):
   solution = root(equations, initial_guesses, args = par)
   alfa = solution.x
   return alfa[0]
+# ---------------------------- Calculo de f --------------------------------#
+def cal_f_alfa(Q0_alfa_c,Aesp_c,e_c,k0_c):
+  # calcula f
+  return ((k0_c[0]/k0_c[1])*(e_c[0]/e_c[1])*Q0_alfa_c[0]  - (Aesp_c[0]/Aesp_c[1])*Q0_alfa_c[1])/(Aesp_c[0]/Aesp_c[1] - (k0_c[0]/k0_c[1])*(e_c[0]/e_c[1]))
+# ------------------------ Calculo de concentración ---------------------------#
+
+def cal_Q0_alfa_i(Q0,Er,alfa):
+  # calcula Q0_alfa del elemento i
+  #(Q0-0.429)/(Er**alfa) + 0.429/((2*alfa+1)*0.55**alfa) literatura
+  # (Q0-0.429)/(Er**alfa) + 0.429/(2*alfa+0.55**alfa) # MACROS
+  return (Q0-0.429)/(Er**alfa) + 0.429/(2*alfa+0.55**alfa)
 
 def conc(par_ele, par_comp, par_comp_Au, equations):
   # Calcula la conctración de un elementos.

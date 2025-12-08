@@ -14,7 +14,7 @@ def Aesp(Cn_i, w_i,lam,tr,td,ti,tv,e):
   return Cn_i*D_i*C_i*H_i/(S_i*w_i) # se agregó e
 
 # ---------------------------- Calculo de alfa --------------------------------#
-def crear_df_compardores()
+def crear_df_comparadores()
   # comparadores [Au Co Mo]
   #Q0_c = np.array([15.712, 2.041, 53.1])    #
   df = pd.DataFrame(

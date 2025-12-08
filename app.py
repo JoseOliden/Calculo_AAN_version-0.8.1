@@ -266,8 +266,10 @@ elif page == "📊 Procesamiento":
 
             # Procesa comparador de Au y sus datos
             df_Au = Selecion_Nucleidos_Au(st.session_state.df_au_resultado, st.session_state.df_file,st.session_state.tolerancia)
+            st.success("Compardor de Au")
             st.dataframe(df_Au)
             # Hallar los nucleidos y sus datos
+            st.success("Nucleidos encontrados en la muestra")
             df_filtrado_Nuclidos = Selecion_Nucleidos_muestra(st.session_state.df_resultado,st.session_state.ref_files, st.session_state.df_file, st.session_state.tolerancia)
             st.dataframe(df_filtrado_Nuclidos)
 

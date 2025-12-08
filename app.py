@@ -206,7 +206,7 @@ elif page == "⚙️ Configuración":
     df_comparadores_alfa_f = crear_df_comparadores()
     if "df_comparadores_alfa_f" not in st.session_state:
         st.session_state.df_comparadores_alfa_f = pd.DataFrame()
-    elif:
+    else:
         st.session_state.df_comparadores_alfa_f
         st.dataframe(df_comparadores_alfa_f)
     

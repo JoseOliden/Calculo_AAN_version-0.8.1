@@ -290,10 +290,10 @@ elif page == "📊 Procesamiento":
             f_med_c_Au = st.session_state.fecha_au 
             hora_med_c_Au = st.session_state.hora_au
             t_irr, t_dec, t_irr_Au, t_dec_Au = Proc_Irr_Dec(f_ini, h_ini, f_fin, h_fin, f_med, hora_med, f_med_c_Au, hora_med_c_Au)
-            st.write(f"**Tiempo irr (s):** {t_irr}")
-            st.write(f"**Tiempo dec (s):** {t_dec}")
-            st.write(f"**Tiempo irr del comparador Au (s):** {t_irr_Au}")
-            st.write(f"**Tiempo dec del comparador Au (s):** {t_dec_Au}")
+            st.write(f"**Tiempo irradiación de la muestra (s):** {t_irr}")
+            st.write(f"**Tiempo decaimiento de la muestra (s):** {t_dec}")
+            st.write(f"**Tiempo irradiación del comparador Au (s):** {t_irr_Au}")
+            st.write(f"**Tiempo decaimiento del comparador Au (s):** {t_dec_Au}")
 
 
 # ============================================

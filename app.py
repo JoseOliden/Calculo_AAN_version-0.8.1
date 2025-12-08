@@ -279,6 +279,7 @@ elif page == "📊 Procesamiento":
             # Se el comparador fue irradiado en un tiempo diferente el cálculo
             # Irraciación: (fecha_fin, hora_fin) - (fecha_ini, hora_ini)
             # Decaimiento: (fecha_ini, hora_ini) -  (fecha_au, hora_au) 
+            (f_ini, h_ini, f_fin, h_fin, f_med, hora_med, f_med_c_Au, hora_med_c_Au) 
 # ============================================
 # SECCIÓN 4: RESULTADOS
 # ============================================

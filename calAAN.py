@@ -53,17 +53,17 @@ def cal_alfa(df_comp):
   
   # calcula alfa
   #k0_c, e_c, Q0_c, Cn_c, w_c, lam_c,Er_c, td_c, tr_c, ti_c, tv_c = par_comp
-  k0_c = float64(df_comp["k0"])
-  e_c = df_comp["efe"].to_numpy()
-  Q0_c = df_comp["Q0"].to_numpy()
-  Cn_c = df_comp["Cn"].to_numpy()
-  w_c = df_comp["w"].to_numpy()
-  lam_c = df_comp["lambda"].to_numpy()
-  Er_c = df_comp["Er"].to_numpy()
-  td_c = df_comp["t_dec"].to_numpy()
-  tr_c = df_comp["t_real"].to_numpy()
-  ti_c = df_comp["t_irr"].to_numpy()
-  tv_c = df_comp["t_vivo"].to_numpy()
+  k0_c = df_comp["k0"]).to_numpy(dtype="float64")
+  e_c = df_comp["efe"].to_numpy(dtype="float64")
+  Q0_c = df_comp["Q0"].to_numpy(dtype="float64")
+  Cn_c = df_comp["Cn"].to_numpy(dtype="float64")
+  w_c = df_comp["w"].to_numpy(dtype="float64")
+  lam_c = df_comp["lambda"].to_numpy(dtype="float64")
+  Er_c = df_comp["Er"].to_numpy(dtype="float64")
+  td_c = df_comp["t_dec"].to_numpy(dtype="float64")
+  tr_c = df_comp["t_real"].to_numpy(dtype="float64")
+  ti_c = df_comp["t_irr"].to_numpy(dtype="float64")
+  tv_c = df_comp["t_vivo"].to_numpy(dtype="float64")
 
   Aesp_c = np.zeros(len(k0_c))
   for i in range(len(k0_c)):
@@ -98,33 +98,33 @@ def conc(df_muestra, w,td_i,ti_i,tv_i,tr_i, df_comp_Au, w_Au,td_c_Au,ti_c_Au,tv_
   
   # Comparador Au
   #k0_c_Au, e_c_Au, Q0_c_Au, Cn_c_Au, w_c_Au, lam_c_Au, Er_c_Au, td_c_Au, tr_c_Au, ti_c_Au, tv_c_Au =  par_comp_Au
-  k0_c_Au = df_comp_Au["K0"].to_numpy()
+  k0_c_Au = df_comp_Au["K0"].to_numpy(dtype="float64")
   if geometria == "50 mm":
-    e_c_Au = df_comp_Au["EFIGAMMA50"].to_numpy()*df_comp_Au["COI ROSSBACH"].to_numpy()
+    e_c_Au = df_comp_Au["EFIGAMMA50"].to_numpy(dtype="float64")*df_comp_Au["COI ROSSBACH"].to_numpy(dtype="float64")
   if geometria == "185 mm":
-    e_c_Au = df_comp_Au["EFIGAMMA185"].to_numpy()*df_comp_Au["COI GAMMA185"].to_numpy()
-  Q0_c_Au = df_comp_Au["Q0"].to_numpy()
-  Cn_c_Au = df_comp_Au["Net Peak Area"].to_numpy()
+    e_c_Au = df_comp_Au["EFIGAMMA185"].to_numpy(dtype="float64")*df_comp_Au["COI GAMMA185"].to_numpy(dtype="float64")
+  Q0_c_Au = df_comp_Au["Q0"].to_numpy(dtype="float64")
+  Cn_c_Au = df_comp_Au["Net Peak Area"].to_numpy(dtype="float64")
   w_c_Au = w_Au
-  lam_c_Au = np.log(2)/df_comp_Au["t(1/2) s"].to_numpy()
-  Er_c_Au = df_comp_Au["EREF"].to_numpy()
+  lam_c_Au = np.log(2)/df_comp_Au["t(1/2) s"].to_numpy(dtype="float64")
+  Er_c_Au = df_comp_Au["EREF"].to_numpy(dtype="float64")
 
   Aesp_c_Au = Aesp(float(Cn_c_Au[0]), w_c_Au, float(lam_c_Au[0]), tr_c_Au, td_c_Au, ti_c_Au, tv_c_Au, float(e_c_Au[0]))
   Q0_alfa_c_Au = cal_Q0_alfa_i(Q0_c_Au[0],Er_c_Au[0],alfa)
   
   # muestra
   #k0_i, e_i, Q0_i, Cn_i, w_i, lamb_i, Er_i, td_i, tr_i, ti_i, tv_i = par_ele
-  k0_i = df_muestra["K0"].to_numpy()
+  k0_i = df_muestra["K0"].to_numpy(dtype="float64")
   if geometria == "50 mm":
-    e_i = df_muestra["EFIGAMMA50"].to_numpy()*df_muestra["COI ROSSBACH"].to_numpy()
-    #e_i = df_muestra["efe"].to_numpy()
+    e_i = df_muestra["EFIGAMMA50"].to_numpy(dtype="float64")*df_muestra["COI ROSSBACH"].to_numpy(dtype="float64")
+    #e_i = df_muestra["efe"].to_numpy(dtype="float64")
   if geometria == "185 mm":
-    e_i = df_muestra["EFIGAMMA185"].to_numpy()*df_muestra["COI GAMMA185"].to_numpy()
-  Q0_i = df_muestra["Q0"].to_numpy()
-  Cn_i = df_muestra["Net Peak Area"].to_numpy()
+    e_i = df_muestra["EFIGAMMA185"].to_numpy(dtype="float64")*df_muestra["COI GAMMA185"].to_numpy(dtype="float64")
+  Q0_i = df_muestra["Q0"].to_numpy(dtype="float64")
+  Cn_i = df_muestra["Net Peak Area"].to_numpy(dtype="float64")
   w_i = w
-  lam_i = np.log(2)/df_muestra["t(1/2) s"].to_numpy()
-  Er_i = df_muestra["EREF"].to_numpy()
+  lam_i = np.log(2)/df_muestra["t(1/2) s"].to_numpy(dtype="float64")
+  Er_i = df_muestra["EREF"].to_numpy(dtype="float64")
 
   Aesp_i = np.zeros(len(k0_i))
   Q0_alfa_i = np.zeros(len(k0_i))

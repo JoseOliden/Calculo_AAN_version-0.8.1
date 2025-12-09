@@ -389,7 +389,7 @@ def corr_Cn(i, df_final):
     delta = 1.0
     df_unico = df_final.iloc[i]
     Nucl = df_unico["Identidad_Verificada_Energia"]
-    Area = df_unico["Net_Peak_Area"]
+    Area = df_unico["Net Peak Area"]
     Interf = df_unico["INTERF"]
     E_Interf = df_unico["E_INTERF"]
     FC = df_unico["FC_GAMM"]

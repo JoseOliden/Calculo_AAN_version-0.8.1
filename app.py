@@ -327,6 +327,7 @@ elif page == "📊 Procesamiento":
             st.write(lam_c_Au)
             st.write(Cn_c_Au)
             # jojo
+            st.write("NumPy:", np.__version__)
 # ============================================
 # SECCIÓN 4: RESULTADOS
 # ============================================

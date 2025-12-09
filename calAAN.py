@@ -129,7 +129,7 @@ def conc(df_muestra, w,td_i,ti_i,tv_i,tr_i, df_comp_Au, w_Au,td_c_Au,ti_c_Au,tv_
   Aesp_i = np.zeros(len(k0_i))
   Q0_alfa_i = np.zeros(len(k0_i))
   for i in range(len(k0_i)):
-    Aesp_i = Aesp(float(Cn_i[i]), w_i, float(lamb_i[i]), tr_i, td_i, ti_i, tv_i, float(e_i[i]))
+    Aesp_i = Aesp(float(Cn_i[i]), w_i, float(lam_i[i]), tr_i, td_i, ti_i, tv_i, float(e_i[i]))
     Q0_alfa_i = cal_Q0_alfa_i(Q0_i[i],Er_i[i],alfa)
 
   C = np.zeros(len(k0_i))

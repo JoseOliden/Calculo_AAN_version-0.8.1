@@ -136,7 +136,7 @@ def conc(df_muestra, w,td_i,ti_i,tv_i,tr_i, df_comp_Au, w_Au,td_c_Au,ti_c_Au,tv_
   for i in range(len(k0_i)):
     # Calcula la concentración del elemento i en la muestra
     C[i] = (Aesp_i[i]/Aesp_c_Au)*(k0_c_Au/k0_i[i])*(e_c_Au/e_i[i])*((f + Q0_alfa_c_Au)/(f + Q0_alfa_i[i]))
-  return C, Q0_alfa_i, Q0_alfa_c_Au, Aesp_i, Aesp_c_Au,lam_c_Au
+  return C, Q0_alfa_i, Q0_alfa_c_Au, Aesp_i, Aesp_c_Au,lam_c_Au,Cn_c_Au
 
 # ------------------------ Calculo de Incertidumbre ---------------------------#
 

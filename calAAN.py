@@ -383,7 +383,7 @@ def cal_derivadas(Val_ini_con):
 
 # ---------------- Correción por picos interferentes ---------------#
 
-def corr_Cn(i, df_final):
+def corr_Cn(i, df_muestra):
     # i ubicación
     # df_final: todos los datos
     df_muestra["Net Peak Area"] = pd.to_numeric(df_muestra["Net Peak Area"], errors="coerce")

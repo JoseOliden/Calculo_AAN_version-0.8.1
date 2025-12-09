@@ -21,9 +21,17 @@ import base64
 def Aesp(Cn_i, w_i,lam,tr,td,ti,tv,e):
   # Calcula la actividad específica
   C_i = lam/(1-np.exp(-lam*tr))
+  st.write("C_i")
+  st.write(C_i)
   D_i = np.exp(lam*td)
+  st.write("D_i")
+  st.write(D_i)
   H_i = tr/tv
+  st.write("H_i")
+  st.write(H_i)
   S_i = 1-np.exp(-lam*ti)
+  st.write("S_i")
+  st.write(S_i)
   #jojo
   return Cn_i*D_i*C_i*H_i/(S_i*w_i) # se agregó e
 

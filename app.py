@@ -316,7 +316,7 @@ elif page == "📊 Procesamiento":
             geom = st.session_state.geometria
             
             C = conc(df_muestra, w,td_i,ti_i,tv_i,tr_i, df_comp_Au, w_Au,td_c_Au,ti_c_Au,tv_c_Au,tr_c_Au, alfa, f, geom)
-            st.write(C)
+            st.write(C*1000000)
 # ============================================
 # SECCIÓN 4: RESULTADOS
 # ============================================

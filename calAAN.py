@@ -388,7 +388,7 @@ def corr_Cn(i, df_final):
     # df_final: todos los datos
     df_muestra["Net Peak Area"] = pd.to_numeric(df_muestra["Net Peak Area"], errors="coerce")
     df_muestra["E_INTERF"] = pd.to_numeric(df_muestra["E_INTERF"], errors="coerce")
-    df_muestra[""FC_GAMM"] = pd.to_numeric(df_muestra["FC_GAMM"], errors="coerce")
+    df_muestra["FC_GAMM"] = pd.to_numeric(df_muestra["FC_GAMM"], errors="coerce")
     
     delta = 1.0
     df_unico = df_final.iloc[i]

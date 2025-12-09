@@ -330,7 +330,7 @@ elif page == "📊 Procesamiento":
             df_ejemplo["Nucleido"] =  df_muestra["NUCLID"]
             df_ejemplo["Energía (keV)"] = df_muestra["EGKEV"]
             df_ejemplo["Área Neto"] = df_muestra["Net Peak Area"]
-            df_ejemplo["Concentración (ppm)"] = df_muestra["Concentracion (PPM"]
+            df_ejemplo["Concentración (ppm)"] = df_muestra["Concentracion (PPM)"]
             df_ejemplo["Incertidumbre (ppm)"] = df_muestra["Net Peak Area"]
             df_ejemplo["% Incertidumbre"] = df_muestra["Net Peak Area"]
 

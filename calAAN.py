@@ -393,8 +393,8 @@ def corr_Cn(i, df_final):
     Interf = df_unico["INTERF"]
     E_Interf = df_unico["E_INTERF"]
     FC = df_unico["FC_GAMM"]
-    st.success("Interferente: "+Interf)
-    st.success(f"E_Interferente: ", E_Interf)
+    st.write(Interf)
+    st.write(E_Interf)
 
     if (Interf == "N_A"):
       return Area

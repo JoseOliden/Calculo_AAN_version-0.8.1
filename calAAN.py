@@ -95,7 +95,7 @@ def cal_Q0_alfa_i(Q0,Er,alfa):
 def conc(df_muestra, w,td_i,ti_i,tv_i,tr_i, df_comp_Au, w_Au,td_c_Au,ti_c_Au,tv_c_Au,tr_c_Au, alfa, f, geometria):
   alfa = 0.226 # Forzar valor de alfa 
   f = 34       # Forzar valor de f
-  
+  st.dataframe(df_comp_Au)
   # Comparador Au
   #k0_c_Au, e_c_Au, Q0_c_Au, Cn_c_Au, w_c_Au, lam_c_Au, Er_c_Au, td_c_Au, tr_c_Au, ti_c_Au, tv_c_Au =  par_comp_Au
   k0_c_Au = df_comp_Au["K0"].to_numpy(dtype="float64")

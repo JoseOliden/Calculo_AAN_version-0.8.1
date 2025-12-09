@@ -82,8 +82,8 @@ if page == "📁 Carga de Datos":
                 fecha, hora, t_vivo, t_real = extraer_DATE_MEA_MEAS_TIM(k0s_file)
                 st.session_state.fecha = fecha
                 st.session_state.hora = hora
-                st.session_state.t_vivo = t_vivo
-                st.session_state.t_real = t_real
+                st.session_state.t_vivo = float(t_vivo)
+                st.session_state.t_real = float(t_real)
                 
                 st.subheader("📌 Datos extraídos del archivo")
                 st.write(f"**Fecha de medición:** {fecha}")
@@ -109,8 +109,8 @@ if page == "📁 Carga de Datos":
             fecha_au, hora_au, t_vivo_au, t_real_au = extraer_DATE_MEA_MEAS_TIM(k0s_au_file)
             st.session_state.fecha_au = fecha_au
             st.session_state.hora_au = hora_au
-            st.session_state.t_vivo_au = t_vivo_au
-            st.session_state.t_real_au = t_real_au
+            st.session_state.t_vivo_au = float(t_vivo_au)
+            st.session_state.t_real_au = float(t_real_au)
             
             st.subheader("📌 Datos extraídos del archivo")
             st.write(f"**Fecha de medición:** {fecha_au}")

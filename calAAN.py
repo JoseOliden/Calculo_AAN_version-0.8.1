@@ -392,7 +392,7 @@ def corr_Cn(i, df_final):
     Area = df_unico["Net Peak Area"]
     Interf = df_unico["INTERF"]
     E_Interf = df_unico["E_INTERF"]
-    FC = df_unico["FC_GAMM"].to_numpy(dtype="float64")
+    FC = df_unico["FC_GAMM"]
     st.write(Interf)
     st.write(E_Interf)
 

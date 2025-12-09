@@ -319,6 +319,7 @@ elif page == "📊 Procesamiento":
             st.write(C*1000000)
             df_muestra["Concentracion (PPM)"] = C*1000000
             st.dataframe(df_muestra)
+            st.text(Q0_alfa_i)
 # ============================================
 # SECCIÓN 4: RESULTADOS
 # ============================================

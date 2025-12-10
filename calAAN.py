@@ -481,11 +481,11 @@ def corr_Cn(i, df_muestra):
     if (Interf == "N_A"):
       return Area
     df_filtrado = df_muestra[(df_muestra["Identidad_Verificada_Energia"] == Interf) & (df_muestra["EGKEV"].between(E_Interf - delta, E_Interf + delta))]
-    st.success(df_filtrado)
     if df_filtrado.empty:
       st.success("No se encontró inteferente ")
       return Area
-    st.write(df_filtrado.iloc[0]["Net Peak Area"])
+    st.write(Interf)
+    st.write(E_Interf)
     E_in_conf = df_filtrado.iloc[0]["Net Peak Area"]
     Area = Area - E_in_conf*FC
 

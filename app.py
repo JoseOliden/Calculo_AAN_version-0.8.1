@@ -291,7 +291,7 @@ elif page == "📊 Procesamiento":
             f = 34
             
             # Calculo de la concentración
-            df_muestra = df_filtrado_Nuclidos 
+            df_muestra = df_filtrado_Nuclidos.copy() 
             w = st.session_state.masa_muestra
             td_i = t_dec
             ti_i = t_irr

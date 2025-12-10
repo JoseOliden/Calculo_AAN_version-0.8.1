@@ -12,4 +12,3 @@ import sympy as sp
 import matplotlib.pyplot as plt
 import tempfile
 import base64
-from math import log

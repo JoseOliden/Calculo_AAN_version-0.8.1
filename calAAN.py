@@ -149,7 +149,7 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
   alfa = 0.226
   u_alfa = 0
   # ----------------------- Valores de la muestra --------------------------#
-  Cn_i = df_unico["Net Peak Area Corr"] 
+  Cn_i = df_unico["Net Peak Area Corr"].to_numpy(dtype = float64) 
   Er_i = df_unico["EREF"] 
   Q0_i = df_unico["Q0"] 
   if (geom == "50 mm"):
@@ -230,7 +230,7 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
   #u_e = 3 # se ingresa
   #u_k0 = 2.8 # se ingresa 
   #u_w = 0.01 # se ingresa
-  u_Cn_v = df_unico["Net Peak Uncert"] # valor
+  u_Cn_v = df_unico["Net Peak Uncert"]to_numpy(dtype = float64)  # valor
   u_Cn = 100*u_Cn_v/Cn_i # %
   u_Er = 0
   u_Q0 = 0

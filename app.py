@@ -293,7 +293,7 @@ elif page == "📊 Procesamiento":
 
             # ---------forzar valores -------
             alfa = 0.226
-            f = 24
+            f = 34
             
             # Calculo de la concentración
             df_muestra = df_filtrado_Nuclidos 

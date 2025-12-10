@@ -321,7 +321,7 @@ elif page == "📊 Procesamiento":
             df_comp = st.session_state.df_comparadores_alfa_f
             
             i = 0 
-            Val_ini,u_v_ini = parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w,  df_comp, df_comp_Au,u_w_c_Au,td_c_Au,ti_c_Au,tr_c_Au,tv_c_Au,w_Au, geom )
+            Val_ini,u_v_ini = parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w,  df_comp, df_comp_Au,u_w_c_Au,td_c_Au,ti_c_Au,tr_c_Au,tv_c_Au,w_Au, geom,alfa )
             u_y, y_val = cal_U(Val_ini,u_v_ini)
             
             df_ejemplo = pd.DataFrame()

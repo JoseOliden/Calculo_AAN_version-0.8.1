@@ -259,9 +259,10 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
 
   u_k0_c_Au = 0.0     #
   u_e_c_Au = 0.0    #
-  u_Q0_c_Au = 0    #
-  u_Cn_c_Au = 100*u_Cn_c_Au/Cn_c_Au     # Area del fotopico extraer de archivos PLA, RPT
-  u_w_c_Au = 1 # se ingresa
+  u_Q0_c_Au = 0.0    #
+  u_Cn_c_Au_v =np.float64(df_comp_Au["Net Peak Uncert"]) 
+  u_Cn_c_Au = 100*u_Cn_c_Au_v/Cn_c_Au     # Area del fotopico extraer de archivos PLA, RPT
+  #u_w_c_Au = 1 # se ingresa
   u_lamb_c_Au = 0.0   #
   u_Er_c_Au = 0.0   #
   u_td_c_Au = 0.0   # Tiempo de decaimiento

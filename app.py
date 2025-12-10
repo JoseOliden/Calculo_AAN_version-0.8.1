@@ -248,11 +248,6 @@ elif page == "📊 Procesamiento":
             #    'Incertidumbre (ppm)': [1.09, 0.08, 0.03, 0.20, 1.15],
             #    '% Incertidumbre': [4.19, 16.63, 9.22, 4.30, 4.25]
             #}
-            
-            
-            
-            
-           
 
             # Procesa comparador de Au y sus datos
             df_Au = Selecion_Nucleidos_Au(st.session_state.df_au_resultado, st.session_state.df_file,st.session_state.tolerancia)

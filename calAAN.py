@@ -211,7 +211,7 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
   w_3 = w_c[2]
  
   # ----------------------- valores del comparador de Au ---------------------------#
-  Cn_c_Au = df_comp_Au["Net Peak Area Corr"] 
+  Cn_c_Au = df_comp_Au["Net Peak Area"] 
   Er_c_Au = df_comp_Au["EREF"] 
   Q0_c_Au = df_comp_Au["Q0"] 
   if (geom == "50 mm"):

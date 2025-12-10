@@ -215,7 +215,7 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
     e_c_Au = np.float64(df_comp_Au["EFIGAMMA50"])*np.float64(df_unico["COI ROSSBACH"]) 
   if (geom == "185 mm"):
     e_c_Au = np.float64(df_comp_Au["EFIGAMMA185"])*np.float64(df_unico["COI GAMMA185"])
-  k0_c_Au = df_comp_Au["K0"]
+  k0_c_Au = np.float64(df_comp_Au["K0"])
   lamb_c_Au = np.log(2)/np.float64(df_comp_Au["t(1/2) s"])
 
 
@@ -225,27 +225,27 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
   #u_w = 0.01 # se ingresa
   u_Cn_v = np.float64(df_unico["Net Peak Uncert"])  # valor
   u_Cn = 100*u_Cn_v/Cn_i # %
-  u_Er = 0
-  u_Q0 = 0
-  u_lamb = 0
+  u_Er = 0.0
+  u_Q0 = 0.0
+  u_lamb = 0.0
   u_td = 0.0
   u_ti = 0.0
   u_tr = 0.0
   u_tv = 0.0
   # --------------- Incertidumbre de los comparadores ---------------------------#
-  u_Cn_1 = 0
-  u_Cn_2 = 0
-  u_Er_1 = 0
-  u_Er_2 = 0
-  u_Q0_1 = 0
-  u_Q0_2 = 0
-  u_alfa = 0
-  u_e_1 = 0
-  u_e_2 = 0
-  u_k0_1 = 0
-  u_k0_2 = 0
-  u_lamb_1 = 0
-  u_lamb_2 = 0
+  u_Cn_1 = 0.0
+  u_Cn_2 = 0.0
+  u_Er_1 = 0.0
+  u_Er_2 = 0.0
+  u_Q0_1 = 0.0
+  u_Q0_2 = 0.0
+  u_alfa = 0.0
+  u_e_1 = 0.0
+  u_e_2 = 0.0
+  u_k0_1 = 0.0
+  u_k0_2 = 0.0
+  u_lamb_1 = 0.0
+  u_lamb_2 = 0.0
   u_td_1 = 0.0
   u_td_2 = 0.0
   u_ti_1 = 0.0

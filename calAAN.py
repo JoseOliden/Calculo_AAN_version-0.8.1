@@ -501,8 +501,7 @@ def corr_Cn(i, df_muestra):
     if df_filtrado.empty:
       st.success("No se encontró inteferente ")
       return Area
-    st.write(Interf)
-    st.write(E_Interf)
+
     E_in_conf = df_filtrado.iloc[0]["Net Peak Area"]
     Area = Area - E_in_conf*FC
 

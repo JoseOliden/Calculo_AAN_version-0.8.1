@@ -145,7 +145,7 @@ def conc(df_muestra, w,td_i,ti_i,tv_i,tr_i, df_comp_Au, w_Au,td_c_Au,ti_c_Au,tv_
 # ------------------------ Calculo de Incertidumbre ---------------------------#
 def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp, df_comp_Au,u_w_c_Au,td_c_Au,ti_c_Au,tr_c_Au,tv_c_Au,w_c_Au, geom,alfa ):
   # i es indice el nucleido.
-  df_unico = df_muestra.iloc[i]
+  df_unico = df_muestra.iloc[[i]]
   st.dataframe(df_unico)
   # ------------------------------------------------------------------------
   #alfa = 0.226

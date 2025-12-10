@@ -230,7 +230,7 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
   #u_e = 3 # se ingresa
   #u_k0 = 2.8 # se ingresa 
   #u_w = 0.01 # se ingresa
-  u_Cn_v = df_unico["Net Peak Uncert"]to_numpy(dtype = float64)  # valor
+  u_Cn_v = df_unico["Net Peak Uncert"].to_numpy(dtype = float64)  # valor
   u_Cn = 100*u_Cn_v/Cn_i # %
   u_Er = 0
   u_Q0 = 0

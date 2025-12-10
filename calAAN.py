@@ -146,35 +146,31 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
   # i es indice el nucleido.
   df_unico = df_muestra.iloc[i]
   # ------------------------------------------------------------------------
-  alfa = 0.226
+  #alfa = 0.226
   u_alfa = 0
   # ----------------------- Valores de la muestra --------------------------#
   Cn_i = np.float64(df_unico["Net Peak Area Corr"]) 
-  Er_i = df_unico["EREF"] 
-  Q0_i = df_unico["Q0"] 
+  Er_i = np.float64(df_unico["EREF"]) 
+  Q0_i = np.float64(df_unico["Q0"]) 
   if (geom == "50 mm"):
-    e_i = df_unico["EFIGAMMA50"]*df_unico["COI ROSSBACH"] 
+    e_i = np.float64(df_unico["EFIGAMMA50"])*np.float64(df_unico["COI ROSSBACH"]) 
   if (geom == "185 mm"):
-    e_i = df_unico["EFIGAMMA185"]*df_unico["COI GAMMA185"]
-  k0_i = df_unico["K0"]
-  lamb_i = np.log(2)/df_unico["t(1/2) s"]
-  td_i = 0
-  ti_i = 0
-  tr_i = 0
-  tv_i = 0
-  w_i = 0
+    e_i = np.float64(df_unico["EFIGAMMA185"])*np.float64(df_unico["COI GAMMA185"])
+  k0_i = np.float64(df_unico["K0"])
+  lamb_i = np.log(2)/np.float64(df_unico["t(1/2) s"])
+
   # ----------------------- valores de los comparadores ---------------------------#
-  Cn_c = df_comp["Cn"] 
-  Er_c = df_comp["Er"] 
-  Q0_c = df_comp["Q0"] 
-  e_c = df_comp["efe"] 
-  k0_c = df_comp["k0"]
-  lamb_c = df_comp["lambda"]
-  td_c = df_comp["t_dec"]
-  ti_c = df_comp["t_irr"]
-  tr_c = df_comp["t_real"]
-  tv_c = df_comp["t_vivo"]
-  w_c = df_comp["w"]
+  Cn_c = np.float64(df_comp["Cn"]) 
+  Er_c = np.float64(df_comp["Er"]) 
+  Q0_c = np.float64(df_comp["Q0"]) 
+  e_c = np.float64(df_comp["efe"])
+  k0_c = np.float64(df_comp["k0"])
+  lamb_c = np.float64(df_comp["lambda"])
+  td_c = np.float64(df_comp["t_dec"])
+  ti_c = np.float64(df_comp["t_irr"])
+  tr_c = np.float64(df_comp["t_real"])
+  tv_c = np.float64(df_comp["t_vivo"])
+  w_c = np.float64(df_comp["w"])
   
   Cn_1 = Cn_c[0]
   Cn_2 = Cn_c[1]
@@ -211,20 +207,16 @@ def parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w_i,  df_comp
   w_3 = w_c[2]
  
   # ----------------------- valores del comparador de Au ---------------------------#
-  Cn_c_Au = df_comp_Au["Net Peak Area"] 
-  Er_c_Au = df_comp_Au["EREF"] 
-  Q0_c_Au = df_comp_Au["Q0"] 
+  Cn_c_Au = np.float64(df_comp_Au["Net Peak Area"]) 
+  Er_c_Au = np.float64(df_comp_Au["EREF"]) 
+  Q0_c_Au = np.float64(df_comp_Au["Q0"]) 
   if (geom == "50 mm"):
-    e_c_Au = df_comp_Au["EFIGAMMA50"]*df_unico["COI ROSSBACH"] 
+    e_c_Au = np.float64(df_comp_Au["EFIGAMMA50"])*np.float64(df_unico["COI ROSSBACH"]) 
   if (geom == "185 mm"):
-    e_c_Au = df_comp_Au["EFIGAMMA185"]*df_unico["COI GAMMA185"]
+    e_c_Au = np.float64(df_comp_Au["EFIGAMMA185"])*np.float64(df_unico["COI GAMMA185"])
   k0_c_Au = df_comp_Au["K0"]
-  lamb_c_Au = np.log(2)/df_comp_Au["t(1/2) s"]
-  td_c_Au = 0
-  ti_c_Au = 0
-  tr_c_Au = 0
-  tv_c_Au = 0
-  w_c_Au = 0
+  lamb_c_Au = np.log(2)/np.float64(df_comp_Au["t(1/2) s"])
+
 
   # -------------------- Incertidumbre de muestra -------------------------------#
   #u_e = 3 # se ingresa

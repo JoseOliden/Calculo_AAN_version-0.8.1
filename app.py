@@ -183,7 +183,7 @@ elif page == "⚙️ Configuración":
             #fecha_fin = st.date_input("Fecha fin irradiación (yyyy/mm/dd):", value=datetime(2025, 9, 26))
             fecha_fin= st.text_input("Fecha fin irradiación (MM/DD/AAAA):", value="09/26/2025")
 
-            st.session_state.["fecha_fin"] = fecha_fin
+            st.session_state["fecha_fin"] = fecha_fin
         with col_hora2:
             #hora_fin = st.time_input("Hora fin irradiación:", value=datetime.strptime("09:45:00", "%H:%M:%S").time(),step=timedelta(seconds=1))
             hora_fin= st.text_input("Hora fin irradiación (HH:MM:SS):", value="09:45:00")

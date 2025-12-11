@@ -234,7 +234,7 @@ elif page == "📊 Procesamiento":
         
             for i, step in enumerate(steps):
                 progress_bar.progress((i + 1) / len(steps))
-                if (i = "Procesando archivos..."):
+                if (i == "Procesando archivos..."):
                     st.write("Procesando archivos...")
                 status_text.text(f"📋 {step}")
             

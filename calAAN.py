@@ -314,8 +314,10 @@ def cal_U(Val_ini,u_v_ini):
   Val_ini_Aesp = (Cn, lamb, td, ti, tr, tv, w)
   u_v_ini_Aesp = (u_Cn, u_lamb, u_td, u_ti, u_tr, u_tv, u_w)
   u_Aesp, Aesp  = cal_U_Aesp(Val_ini_Aesp,u_v_ini_Aesp)
-
-
+  st.text("Aesp")
+  st.write(Aesp)
+  st.write(u_Aesp)
+  
   # Aesp_1
   # [Cn, lamb, td, ti, tr, tv, w]
   Val_ini_Aesp_1 = (Cn_1, lamb_1, td_1, ti_1, tr_1, tv_1, w_1)

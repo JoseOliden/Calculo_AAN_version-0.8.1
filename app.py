@@ -172,7 +172,7 @@ elif page == "⚙️ Configuración":
             #fecha_ini = st.date_input("Fecha inicio irradiación (yyyy/mm/dd):", value=datetime(2025, 9, 26))
             fecha_ini= st.text_input("Fecha inicio irradiación (MM/DD/AAAA):", value="09/26/2025")
 
-            st.session_state.["fecha_ini"] = fecha_ini
+            st.session_state["fecha_ini"] = fecha_ini
         with col_hora1:
             #hora_ini = st.time_input("Hora inicio irradiación:", value=datetime.strptime("08:45:00", "%H:%M:%S").time(),step=timedelta(seconds=1))
             hora_ini = st.text_input("Hora inicio irradiación (HH:MM:SS):", value="08:45:00")

@@ -398,7 +398,7 @@ def cal_U(Val_ini,u_v_ini):
         c["% Contribución"] = 100 * c["Contribución a u(y)²"] / u_y_squared if u_y_squared > 0 else np.nan
   except Exception as e:
       st.error(f"Ocurrió un error en el cálculo: {e}")
-  return u_y, y_val, u_y_por, simbolos
+  return u_y, y_val, u_y_por, u_Aesp
 
 def cal_U_Aesp(Val_ini,u_v_ini):
   # [Cn, lamb, t_d, ti, tr, tv, w]

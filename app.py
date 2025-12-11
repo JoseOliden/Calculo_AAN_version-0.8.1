@@ -226,17 +226,16 @@ elif page == "📊 Procesamiento":
             status_text = st.empty()
             
             steps = [
-                "Leyendo archivo .k0s de muestra...",
-                "Procesando archivo .RPT...",
-                "Validando nucleidos...",
-                "Calculando tiempos...",
-                "Calculando concentraciones...",
-                "Calculando incertidumbres...",
+                "Procesando archivos...",
+                "Calculando concetraciones...",
+                "Calculando incentidumbre...",
                 "Generando resultados..."
             ]
         
             for i, step in enumerate(steps):
                 progress_bar.progress((i + 1) / len(steps))
+                if (i = "Procesando archivos..."):
+                    st.write("Procesando archivos...")
                 status_text.text(f"📋 {step}")
             
             # Datos de ejemplo

@@ -362,8 +362,8 @@ def cal_U(Val_ini,u_v_ini):
     simbolos = {str(v): sp.Symbol(str(v)) for v in variables}
     formula_sym = sp.sympify(formula_str)
     # Calcular valor central
-    y_val = (Aesp/Aesp_c_Au)*(k0_c_Au/k0)*(e_c_Au/e)*(((k0_1/k0_2)*(e_1/e_2)*((Q0_1 -0.429)/((Er_1)**alfa)+0.429/((2*alfa-1)*0.55**alfa))-(Aesp_1/Aesp_2)*((Q0_2 -0.429)/((Er_2)**alfa)+0.429/((2*alfa-1)*0.55**alfa)))/((Aesp_1/Aesp_2)-(k0_1/k0_2)*(e_1/e_2))+((Q0_c_Au -0.429)/((Er_c_Au)**alfa)+0.429/((2*alfa-1)*0.55**alfa))) / (((k0_1/k0_2)*(e_1/e_2)*((Q0_1 -0.429)/((Er_1)**alfa)+0.429/((2*alfa-1)*0.55**alfa))-(Aesp_1/Aesp_2)*((Q0_2 -0.429)/((Er_2)**alfa)+0.429/((2*alfa-1)*0.55**alfa)))/((Aesp_1/Aesp_2)-(k0_1/k0_2)*(e_1/e_2))+((Q0 -0.429)/((Er)**alfa)+0.429/((2*alfa-1)*0.55**alfa)))"
-    #y_val = np.float64(formula_sym.evalf(subs=valores))
+    #y_val = (Aesp/Aesp_c_Au)*(k0_c_Au/k0)*(e_c_Au/e)*(((k0_1/k0_2)*(e_1/e_2)*((Q0_1 -0.429)/((Er_1)**alfa)+0.429/((2*alfa-1)*0.55**alfa))-(Aesp_1/Aesp_2)*((Q0_2 -0.429)/((Er_2)**alfa)+0.429/((2*alfa-1)*0.55**alfa)))/((Aesp_1/Aesp_2)-(k0_1/k0_2)*(e_1/e_2))+((Q0_c_Au -0.429)/((Er_c_Au)**alfa)+0.429/((2*alfa-1)*0.55**alfa))) / (((k0_1/k0_2)*(e_1/e_2)*((Q0_1 -0.429)/((Er_1)**alfa)+0.429/((2*alfa-1)*0.55**alfa))-(Aesp_1/Aesp_2)*((Q0_2 -0.429)/((Er_2)**alfa)+0.429/((2*alfa-1)*0.55**alfa)))/((Aesp_1/Aesp_2)-(k0_1/k0_2)*(e_1/e_2))+((Q0 -0.429)/((Er)**alfa)+0.429/((2*alfa-1)*0.55**alfa)))"
+    y_val = np.float64(formula_sym.evalf(subs=valores))
     u_y_squared = 0
     contribuciones = []
     kkk = 0

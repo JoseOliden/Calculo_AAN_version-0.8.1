@@ -314,9 +314,6 @@ def cal_U(Val_ini,u_v_ini):
   Val_ini_Aesp = (Cn, lamb, td, ti, tr, tv, w)
   u_v_ini_Aesp = (u_Cn, u_lamb, u_td, u_ti, u_tr, u_tv, u_w)
   u_Aesp, Aesp  = cal_U_Aesp(Val_ini_Aesp,u_v_ini_Aesp)
-  st.text("Aesp")
-  st.write(Aesp)
-  st.write(u_Aesp)
   
   # Aesp_1
   # [Cn, lamb, td, ti, tr, tv, w]
@@ -397,8 +394,8 @@ def cal_U(Val_ini,u_v_ini):
     u_rel_y = u_y / y_val if y_val != 0 else np.nan
     u_y_por = 100*u_rel_y
     # Calcular porcentaje de contribución
-    #for c in contribuciones:
-    #    c["% Contribución"] = 100 * c["Contribución a u(y)²"] / u_y_squared if u_y_squared > 0 else np.nan
+    for c in contribuciones:
+        c["% Contribución"] = 100 * c["Contribución a u(y)²"] / u_y_squared if u_y_squared > 0 else np.nan
   except Exception as e:
       st.error(f"Ocurrió un error en el cálculo: {e}")
   return u_y, y_val, u_y_por

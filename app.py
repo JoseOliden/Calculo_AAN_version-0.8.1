@@ -259,15 +259,16 @@ elif page == "📊 Procesamiento":
             steps = [
                 "Procesando archivos...",
                 "Calculando concentraciones...",
-                "Calculando incentidumbre...",
+                "Calculando incertidumbre...",
                 "Generando resultados..."
             ]
         
             for i, step in enumerate(steps):
                 progress_bar.progress((i + 1) / len(steps))
+                status_text.text(f"📋 {step}")
                 if (step == "Procesando archivos..."):
                     st.write("Procesando archivos...")
-
+                    
                     # Comparadores para cálculo de alfa
             
                     df_comparadores_alfa_f = crear_df_comparadores()
@@ -341,8 +342,8 @@ elif page == "📊 Procesamiento":
                     df_muestra["Concentracion (PPM)"] = C*1000000
                     time.sleep(1.0)
             
-                if (step == "Calculando incentidumbre..."):
-                    st.write("Calculando incentidumbre...")
+                if (step == "Calculando incertidumbre..."):
+                    st.write("Calculando incertidumbre...")
 
                     # calculo de incertidumbre
                     u_e = st.session_state["u_e"]
@@ -374,11 +375,6 @@ elif page == "📊 Procesamiento":
                     df_ejemplo["Incertidumbre (ppm)"] = Inc_valor_red
                     df_ejemplo["% Incertidumbre"] = Inc_por         
                     time.sleep(1.0)
-                    
-            
-                status_text.text(f"📋 {step}")
-            
-
 
             st.success("✅ Procesamiento completado!")
             status_text.text("✅ Procesamiento finalizado")

@@ -258,7 +258,7 @@ elif page == "📊 Procesamiento":
             
             steps = [
                 "Procesando archivos...",
-                "Calculando concetraciones...",
+                "Calculando concentraciones...",
                 "Calculando incentidumbre...",
                 "Generando resultados..."
             ]
@@ -318,8 +318,8 @@ elif page == "📊 Procesamiento":
                     st.write(f"**f:** {f}")
                     time.sleep(1.0)
             
-                if (step == "Calculando concetraciones..."):
-                    st.write("Calculando concetraciones...")
+                if (step == "Calculando concentraciones..."):
+                    st.write("Calculando concentraciones...")
                     # Calculo de la concentración
                     df_muestra = df_filtrado_Nuclidos.copy() 
                     w = st.session_state["masa_muestra"]

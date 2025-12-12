@@ -45,7 +45,8 @@ st.markdown("""
 
 st.image(
     #"https://raw.githubusercontent.com/JoseOliden/Calculo_AAN_v2/blob/9200317f198286182976ba3fa03b7f521d1d7f64/LOGO_IPEN.jpg",
-    "file:///C:\Users\joliden\Documents\Calidad\Interfaces_AAN\k0\LOGO_IPEN.jpg"
+    #"file:///C:\Users\joliden\Documents\Calidad\Interfaces_AAN\k0\LOGO_IPEN.jpg"
+    "LOGO_IPEN.jpg"
     width=300,
 )
 # Título principal

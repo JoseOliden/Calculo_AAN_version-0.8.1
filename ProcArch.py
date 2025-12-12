@@ -195,6 +195,7 @@ def extraer_DATE_MEA_MEAS_TIM(k0s_file):
 # tiempo de decaimiento y tiempo de irradiación
 
 def Proc_Irr_Dec(f_ini, h_ini, f_fin, h_fin, f_med, hora_med, f_ini_c_Au, h_ini_c_Au, f_fin_c_Au, h_fin_c_Au, f_med_c_Au, hora_med_c_Au ): 
+    # jojo
     # f_ini, h_ini: fecha y hora de inicio de irradiación 
     # f_fin, h_fin: fecha y hora de fin de irradiación 
     # f_med, hora_med: de inicio de la medición muestra 

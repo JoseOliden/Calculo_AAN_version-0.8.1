@@ -194,26 +194,33 @@ def extraer_DATE_MEA_MEAS_TIM(k0s_file):
 #  ------------------ kos ---------------------------------
 # tiempo de decaimiento y tiempo de irradiación
 
-def Proc_Irr_Dec(f_ini, h_ini, f_fin, h_fin, f_med, hora_med, f_med_c_Au, hora_med_c_Au ): 
+def Proc_Irr_Dec(f_ini, h_ini, f_fin, h_fin, f_med, hora_med, f_ini_c_Au, h_ini_c_Au, f_fin_c_Au, h_fin_c_Au, f_med_c_Au, hora_med_c_Au ): 
     # f_ini, h_ini: fecha y hora de inicio de irradiación 
     # f_fin, h_fin: fecha y hora de fin de irradiación 
     # f_med, hora_med: de inicio de la medición muestra 
     # f_med_c_Au, hora_med_c_Au: Fecha y hora de incio de medición Comparador Au 
-    fecha1 = str(f_ini+" "+h_ini)
-    fecha2 = str(f_fin+" "+h_fin)
+    fecha1 = str(f_ini+" "+h_ini) # muestra
+    fecha2 = str(f_fin+" "+h_fin) # muestra
     fecha3 = str(str(f_med)+" "+str(hora_med)) # muestra
-    fecha4 = str(str(f_med_c_Au)+" "+str(hora_med_c_Au)) # comparador
+    fecha4 = str(f_ini_c_Au+" "+h_ini_c_Au) # comparador 
+    fecha5 = str(f_fin_c_Au+" "+h_fin_c_Au) # comparador
+    fecha6 = str(str(f_med_c_Au)+" "+str(hora_med_c_Au)) # comparador
 
+    
     f1 = datetime.strptime(fecha1, "%m/%d/%Y %H:%M:%S")
     f2 = datetime.strptime(fecha2, "%m/%d/%Y %H:%M:%S")
     f3 = datetime.strptime(fecha3, "%m/%d/%Y %H:%M:%S")
     f4 = datetime.strptime(fecha4, "%m/%d/%Y %H:%M:%S")
+    f5 = datetime.strptime(fecha5, "%m/%d/%Y %H:%M:%S")
+    f6 = datetime.strptime(fecha6, "%m/%d/%Y %H:%M:%S")
+
 
     # Diferencia en segundos
 
     ti_i = float((f2 - f1).total_seconds())
     td_i = float((f3 - f2).total_seconds())
-    ti_c_Au = float((f2 - f1).total_seconds())
-    td_c_Au = float((f4 - f2).total_seconds())
+    
+    ti_c_Au = float((f5 - f4).total_seconds())
+    td_c_Au = float((f6 - f5).total_seconds())
     
     return ti_i,td_i, ti_c_Au, td_c_Au 

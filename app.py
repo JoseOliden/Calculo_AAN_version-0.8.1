@@ -466,7 +466,7 @@ elif page == "📈 Resultados":
 # ============================================
 # SECCIÓN 5: REPORTE PDF
 # ============================================
-elif page == "📄 Reporte PDF":
+elif page == "📄 Reporte PDF (EN DESARROLLO)":
     st.markdown('<h2 class="section-header">📄 Generación de Reporte</h2>', unsafe_allow_html=True)
     
     # Información del reporte
@@ -559,8 +559,8 @@ st.markdown("---")
 st.markdown(
     """
     <div style='text-align: center; color: #6B7280;'>
-        <p>Sistema de Análisis k0 - AAN v0.0 | Desarrollado para análisis por activación neutrónica</p>
-        <p>© 2024 Laboratorio de Técnicas Analíticas - Instituto Peruano de Energía Nuclear</p>
+        <p>Sistema de Análisis k0 - AAN v0.1.0 - beta | Desarrollado para análisis por activación neutrónica</p>
+        <p>© 2025 Laboratorio de Técnicas Analíticas - Instituto Peruano de Energía Nuclear</p>
     </div>
     """,
     unsafe_allow_html=True

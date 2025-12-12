@@ -360,7 +360,7 @@ elif page == "📊 Procesamiento":
                         Val_ini,u_v_ini = parametros_cal_U(i,df_muestra,u_e,u_k0,u_w,td_i,ti_i,tr_i,tv_i,w,  df_comp, df_comp_Au,u_w_c_Au,td_c_Au,ti_c_Au,tr_c_Au,tv_c_Au,w_Au, geom,alfa )
                         u_y, y_val, u_y_por, simbolos = cal_U(Val_ini,u_v_ini)
                         Inc_valor[i] = 1000000*u_y
-                        Inc_por[i] = u_y_por
+                        Inc_por[i] = round(u_y_por,2)
                         x_red, u_red = redondear_con_incert(1000000*C[i], 1000000*u_y, sig_inc = 3)
                         C_red[i] = x_red
                         Inc_valor_red[i] = u_red

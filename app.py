@@ -68,7 +68,7 @@ if page == "📁 Carga de Datos":
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.subheader("📄 Archivo .RPT de Muestra")
+        st.subheader("📄 Archivo de la muestra")
         rpt_file = st.file_uploader("Subir archivo .RPT", type=['rpt', 'RPT'], key="rpt_sample")
         if rpt_file:
             st.success(f"✅ {rpt_file.name} cargado")
@@ -78,7 +78,7 @@ if page == "📁 Carga de Datos":
                 st.session_state["df_resultado"] = df_resultado
     
     with col2:
-        st.subheader("📄 Archivo .k0s de Muestra")
+        st.subheader(" ")
         k0s_file = st.file_uploader("Subir archivo .k0s", type=['k0s', 'K0S'], key="k0s_sample")
         if k0s_file:
             st.success(f"✅ {k0s_file.name} cargado")

@@ -99,14 +99,15 @@ if page == "📁 Carga de Datos":
              
     with col3:
         st.subheader("📄 Archivos del comparador")
-        rpt_au_file = st.file_uploader("Subir archivo .RPT de Au", type=['RPT', 'RPT'], key="rpt_au")
+        rpt_au_file = st.file_uploader("Subir archivo .RPT", type=['RPT', 'RPT'], key="rpt_au")
         if rpt_au_file:
             st.success(f"✅ {rpt_au_file.name} cargado")
             if rpt_au_file:
                 df_au_resultado = procesar_RPT(rpt_au_file)
                 st.session_state["df_au_resultado"] = df_au_resultado
                 st.dataframe(df_au_resultado)
-            k0s_au_file = st.file_uploader("Subir archivo .k0s de Au", type=['k0s', 'K0S'], key="k0s_au")
+            
+        k0s_au_file = st.file_uploader("Subir archivo .k0s", type=['k0s', 'K0S'], key="k0s_au")
         if k0s_au_file:
             st.success(f"✅ {k0s_au_file.name} cargado")
             fecha_au, hora_au, t_vivo_au, t_real_au = extraer_DATE_MEA_MEAS_TIM(k0s_au_file)

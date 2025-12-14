@@ -48,7 +48,7 @@ st.image(
     width=100,
 )
 # Título principal
-st.markdown('<h1 class="main-header">🔬 Sistema de Análisis k0 - AAN</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header">Sistema de Análisis AAN</h1>', unsafe_allow_html=True)
 
 # Barra lateral para navegación
 st.sidebar.title("🌐 Navegación")
@@ -96,7 +96,8 @@ if page == "📁 Carga de Datos":
     with col2:
         st.subheader("Selecionar comparador")       
         Tipo_comp = st.radio("Seleccionar el comparador:", ["Au", "Mn", "Na"])
-             
+        st.session_state["Tipo_comp"] = Tipo_comp
+    
     with col3:
         st.subheader("Archivos del comparador")
         rpt_au_file = st.file_uploader("Subir archivo .RPT", type=['RPT', 'RPT'], key="rpt_au")
@@ -283,7 +284,8 @@ elif page == "📊 Procesamiento":
                         st.session_state["df_comparadores_alfa_f"]
             
                     # Procesa comparador de Au y sus datos
-                    df_Au = Selecion_Nucleidos_Au(st.session_state["df_au_resultado"], st.session_state["df_file"],st.session_state["tolerancia"])
+                    Tipo_comp = st.session_state["Tipo_comp"]  
+                    df_Au = Selecion_Nucleidos_Au(st.session_state["df_au_resultado"], st.session_state["df_file"],st.session_state["tolerancia"],Tipo_comp)
                     # Hallar los nucleidos y sus datos
                     df_filtrado_Nuclidos = Selecion_Nucleidos_muestra(st.session_state["df_resultado"],st.session_state["ref_files"], st.session_state["df_file"], st.session_state["tolerancia"])
 
@@ -564,7 +566,7 @@ st.markdown("---")
 st.markdown(
     """
     <div style='text-align: center; color: #6B7280;'>
-        <p>Sistema de Análisis k0 - AAN Versión 0.1.0 - beta | Desarrollado para análisis por activación neutrónica</p>
+        <p>Sistema de Análisis k0 - AAN Versión 0.1.1 - beta | Desarrollado para análisis por activación neutrónica</p>
         <p>© 2025 Laboratorio de Técnicas Analíticas - Instituto Peruano de Energía Nuclear</p>
     </div>
     """,

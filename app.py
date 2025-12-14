@@ -68,7 +68,7 @@ if page == "📁 Carga de Datos":
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.subheader("📄 Archivo de la muestra")
+        st.subheader("Archivos de la muestra")
         rpt_file = st.file_uploader("Subir archivo .RPT", type=['rpt', 'RPT'], key="rpt_sample")
         if rpt_file:
             st.success(f"✅ {rpt_file.name} cargado")
@@ -98,7 +98,7 @@ if page == "📁 Carga de Datos":
         Tipo_comp = st.radio("Seleccionar el comparador:", ["Au", "Mn", "Na"])
              
     with col3:
-        st.subheader("📄 Archivos del comparador")
+        st.subheader("Archivos del comparador")
         rpt_au_file = st.file_uploader("Subir archivo .RPT", type=['RPT', 'RPT'], key="rpt_au")
         if rpt_au_file:
             st.success(f"✅ {rpt_au_file.name} cargado")

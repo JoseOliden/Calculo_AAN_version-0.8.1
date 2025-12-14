@@ -120,12 +120,21 @@ def Selecion_Nucleidos_muestra(df_rpt_muestras,df_Nucleidos, df_database, tol=1.
     
     return df_unido
 
-def Selecion_Nucleidos_Au(df_rpt_Au, df_database,tol):
+def Selecion_Nucleidos_Au(df_rpt_Au, df_database,tol,Tipo_comp):
     # buscar en database energía de Au
-    En_Au = np.float64(411.8) 
+    if (Tipo_comp == "Au")
+        En_Au = np.float64(411.8)
+        Nucledo_comp = "AU-198"
+    if (Tipo_comp == "Na")
+        En_Au = np.float64(1368.6)
+        Nucledo_comp = "NA-24" 
+    if (Tipo_comp == "Al")
+        En_Au = np.float64(1778.99)
+        Nucledo_comp = "AL-28" 
+
     tol_Au = np.float64(1.0)
     df_rpt_Au["Energy (keV)"] = pd.to_numeric(df_rpt_Au["Energy (keV)"], errors="coerce").astype("float64")
-    df_energy_Au = df_rpt_Au[(df_rpt_Au["Tentative Nuclide"] == "AU-198") & ((df_rpt_Au["Energy (keV)"] > En_Au - tol_Au) | (df_rpt_Au["Energy (keV)"] < En_Au + tol_Au))]
+    df_energy_Au = df_rpt_Au[(df_rpt_Au["Tentative Nuclide"] == Nucledo_comp ) & ((df_rpt_Au["Energy (keV)"] > En_Au - tol_Au) | (df_rpt_Au["Energy (keV)"] < En_Au + tol_Au))]
 
     # agregar propiedades
     df_unido = Extra_from_database(df_energy_Au, df_database,tol)

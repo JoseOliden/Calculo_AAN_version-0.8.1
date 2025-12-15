@@ -45,7 +45,7 @@ st.markdown("""
 
 st.image(
     "banner.jpg",
-    width=1050,
+    width=1500,
 )
 # Título principal
 st.markdown('<h1 class="main-header">Sistema de Análisis AAN</h1>', unsafe_allow_html=True)

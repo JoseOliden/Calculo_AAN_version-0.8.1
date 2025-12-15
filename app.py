@@ -57,7 +57,6 @@ page = st.sidebar.radio(
     ["📁 Carga de Datos", "⚙️ Configuración", "📊 Procesamiento", "📈 Resultados", "📄 Reporte (EN DESARROLLO)"]
 )
 
-
 # ============================================
 # SECCIÓN 1: CARGA DE DATOS
 # ============================================

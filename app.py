@@ -224,7 +224,7 @@ elif page == "⚙️ Configuración":
         st.session_state["tolerancia"] = np.float64(tolerancia)
 
     with col2:
-        st.subheader("📊 Parámetros de Incertidumbre")
+        st.subheader("📊 Incertidumbres")
         u_k0 = 2.8
         u_e = 3.0
         st.write(f"**Incertidumbre k0 de la muestra (%):** {u_k0}")

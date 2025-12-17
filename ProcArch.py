@@ -42,7 +42,7 @@ def procesar_RPT(rpt_file):
     df = df[~df["sin_espacios"].str.startswith(patrones_excluir)]
 
     # 6. Eliminar líneas que empiezan con exactamente 3 espacios
-    df = df[~df["linea"].str.startswith("   ")]
+    df = df[~df["linea"].str.startswith("            ")]
 
     # 7. Eliminar líneas vacías o solo con espacios
     df = df[~df["linea"].str.strip().eq("")]

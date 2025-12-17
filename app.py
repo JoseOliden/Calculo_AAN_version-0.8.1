@@ -100,7 +100,6 @@ if page == "📁 Carga de Datos":
             if rpt_au_file:
                 df_au_resultado = procesar_RPT(rpt_au_file)
                 st.session_state["df_au_resultado"] = df_au_resultado
-                st.dataframe(df_au_resultado)
             
         k0s_au_file = st.file_uploader("Subir archivo .k0s", type=['k0s', 'K0S'], key="k0s_au")
         if k0s_au_file:
@@ -278,9 +277,7 @@ elif page == "📊 Procesamiento":
             
                     # Procesa comparador de Au y sus datos
                     
-                    st.dataframe(st.session_state["df_au_resultado"])
                     df_Au = Selecion_Nucleidos_Au(st.session_state["df_au_resultado"], st.session_state["df_file"],st.session_state["tolerancia"])
-                    st.dataframe(df_Au)
                     # Hallar los nucleidos y sus datos
                     df_filtrado_Nuclidos = Selecion_Nucleidos_muestra(st.session_state["df_resultado"],st.session_state["ref_files"], st.session_state["df_file"], st.session_state["tolerancia"])
 

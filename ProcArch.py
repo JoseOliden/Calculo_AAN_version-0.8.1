@@ -54,7 +54,7 @@ def procesar_RPT(rpt_file):
     df = df.reset_index(drop=True)
 
     # 10. Quitar 1 espacio inicial (si hay) y todos los finales
-    #df = df.applymap(limpiar)
+    df = df.applymap(limpiar)
 
     # 11. Separar columnas y asignar nombres
     

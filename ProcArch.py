@@ -55,8 +55,11 @@ def procesar_RPT(rpt_file):
 
     # 10. Quitar 1 espacio inicial (si hay) y todos los finales
     df = df.applymap(limpiar)
+    
+    # 11. Agregar letra al inicio si la línea no empieza con una letra
+    df["linea"] = df["linea"].apply(lambda x: "X" + x if not x[:1].isalpha() else x)
 
-    # 11. Separar columnas y asignar nombres
+    # 12. Separar columnas y asignar nombres
     
     # primera columna
     df_tipo = df["linea"].str[:1].to_frame()

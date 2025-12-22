@@ -321,8 +321,8 @@ elif page == "📊 Procesamiento":
                     ##
                     st.write(alfa)
                    
-                    st.session_state["alfa"] = alfa
-                    st.session_state["f"] = f
+                    st.session_state["alfa"] = np.float64(alfa)
+                    st.session_state["f"] = np.float64(f)
                     st.write(f"**alfa:** {alfa}")
                     st.write(f"**f:** {f}")
                     time.sleep(1.0)

@@ -67,7 +67,7 @@ def cal_alfa(df_comp):
 
   n = len(k0_c)
   Aesp_c = np.zeros(n)
-  for i in range(len(k0_c)):
+  for i in range(n):
     Aesp_c[i] = Aesp(Cn_c[i], w_c[i],lam_c[i],tr_c[i],td_c[i],ti_c[i],tv_c[i],e_c[i]) # Activida especifica del elemento comparador
   initial_guesses = [0.0]
   par = (Aesp_c[0], k0_c[0], e_c[0], Er_c[0], Q0_c[0], Aesp_c[1], k0_c[1], e_c[1], Er_c[1], Q0_c[1], Aesp_c[2], k0_c[2], e_c[2], Er_c[2], Q0_c[2])
@@ -76,8 +76,9 @@ def cal_alfa(df_comp):
   
   # Calcular f
   Q0_alfa_c = np.zeros(n)
-  for i in range(len(k0_c)):
+  for i in range(n):
     Q0_alfa_c[i] = cal_Q0_alfa_i(Q0_c[i],Er_c[i],alfa)
+  
   f = cal_f_alfa(Q0_alfa_c,Aesp_c,e_c,k0_c)
   
   return alfa[0], f

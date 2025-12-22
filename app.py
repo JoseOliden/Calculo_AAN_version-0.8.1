@@ -271,13 +271,10 @@ elif page == "📊 Procesamiento":
                     # Comparadores para cálculo de alfa
             
                     df_comparadores_alfa_f = crear_df_comparadores()
-                    st.dataframe()
                     st.session_state["df_comparadores_alfa_f"] = df_comparadores_alfa_f
                     st.dataframe(st.session_state["df_comparadores_alfa_f"])
-                    #if "df_comparadores_alfa_f" not in st.session_state:
-                    #    st.session_state["df_comparadores_alfa_f"] = crear_df_comparadores()
-                    #else:
-                    #    st.session_state["df_comparadores_alfa_f"] = df_comparadores_alfa_f
+                    if "df_comparadores_alfa_f" not in st.session_state:
+                        st.session_state["df_comparadores_alfa_f"] = crear_df_comparadores()
             
                     # Procesa comparador de Au y sus datos
                     
@@ -308,6 +305,10 @@ elif page == "📊 Procesamiento":
                     hora_med_c_Au = st.session_state["hora_au"]
              
                     t_irr, t_dec, t_irr_Au, t_dec_Au = Proc_Irr_Dec(f_ini, h_ini, f_fin, h_fin, f_med, hora_med, f_ini_c_Au, h_ini_c_Au, f_fin_c_Au, h_fin_c_Au, f_med_c_Au, hora_med_c_Au)
+                    st.session_state["t_irr"] = t_irr
+                    st.session_state["t_dec"] = t_dec 
+                    st.session_state["t_irr_Au"] = t_irr_Au
+                    st.session_state["t_dec_Au"] = t_dec_Au
                     st.write(f"**Tiempo irradiación de la muestra (s):** {t_irr}")
                     st.write(f"**Tiempo decaimiento de la muestra (s):** {t_dec}")
                     st.write(f"**Tiempo irradiación del comparador Au (s):** {t_irr_Au}")
@@ -330,15 +331,15 @@ elif page == "📊 Procesamiento":
                     # Calculo de la concentración
                     df_muestra = df_filtrado_Nuclidos.copy() 
                     w = st.session_state["masa_muestra"]
-                    td_i = t_dec
-                    ti_i = t_irr
+                    td_i = st.session_state["t_dec"]
+                    ti_i = st.session_state["t_irr"]
                     tv_i = st.session_state["t_vivo"]
                     tr_i = st.session_state["t_real"]
                     df_comp_Au = df_Au.copy()
                     w_Au = st.session_state["masa_comparador_au"]
     
-                    td_c_Au = t_dec_Au 
-                    ti_c_Au = t_irr
+                    td_c_Au = st.session_state["t_dec_Au"] 
+                    ti_c_Au = st.session_state["t_irr_Au"]
                     tv_c_Au = st.session_state["t_vivo_au"]
                     tr_c_Au = st.session_state["t_real_au"]
                     geom = st.session_state["geometria"]

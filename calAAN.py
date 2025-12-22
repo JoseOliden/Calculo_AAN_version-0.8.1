@@ -110,7 +110,7 @@ def conc(df_muestra, w,td_i,ti_i,tv_i,tr_i, df_comp_Au, w_Au,td_c_Au,ti_c_Au,tv_
     e_c_Au = df_comp_Au["EFIGAMMA185"].to_numpy(dtype="float64")*df_comp_Au["COI GAMMA185"].to_numpy(dtype="float64")[0]
   Q0_c_Au = df_comp_Au["Q0"].to_numpy(dtype="float64")[0]
   Cn_c_Au = df_comp_Au["Net Peak Area"].to_numpy(dtype="float64")[0]
-  w_c_Au = w_Au[0]
+  w_c_Au = w_Au
   lam_c_Au = np.log(2)/df_comp_Au["t(1/2) s"].to_numpy(dtype="float64")[0]
   Er_c_Au = df_comp_Au["EREF"].to_numpy(dtype="float64")[0]
 

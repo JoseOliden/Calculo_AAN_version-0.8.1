@@ -320,9 +320,7 @@ elif page == "📊 Procesamiento":
                     alfa, f = cal_alfa(st.session_state["df_comparadores_alfa_f"])
                     ##
                     st.write(alfa)
-                    # ---------forzar valores -------
-                    alfa = 0.226
-                    f = 34
+                   
                     st.session_state["alfa"] = alfa
                     st.session_state["f"] = f
                     st.write(f"**alfa:** {alfa}")

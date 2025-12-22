@@ -271,6 +271,7 @@ elif page == "📊 Procesamiento":
                     # Comparadores para cálculo de alfa
             
                     df_comparadores_alfa_f = crear_df_comparadores()
+                    st.session_state["df_comparadores_alfa_f"] = df_comparadores_alfa_f
                     if "df_comparadores_alfa_f" not in st.session_state:
                         st.session_state["df_comparadores_alfa_f"] = crear_df_comparadores()
                     else:
